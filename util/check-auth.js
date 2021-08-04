@@ -1,6 +1,5 @@
-require("dotenv").config();
-
 const { AuthenticationError } = require("apollo-server");
+require("dotenv").config();
 
 const jwt = require("jsonwebtoken");
 // const { SECRET_KEY } = require("../config");
