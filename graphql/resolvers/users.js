@@ -3,12 +3,13 @@ const jwt = require("jsonwebtoken");
 // we could say throw error or
 // import UserInputError for specific errors from apollo
 const { UserInputError } = require("apollo-server");
+require("dotenv").config();
 
 const {
   validateRegisterInput,
   validateLoginInput,
 } = require("../../util/validators");
-const { SECRET_KEY } = require("../../config");
+// const { SECRET_KEY } = require("../../config");
 const User = require("../../models/User");
 
 function generateToken(user) {
@@ -18,7 +19,7 @@ function generateToken(user) {
       email: user.email,
       username: user.username,
     },
-    SECRET_KEY,
+    process.env.SECRET_KEY,
     { expiresIn: "4h" }
   );
 }
